@@ -1,87 +1,90 @@
-# GitWire CLI
+<p align="center">
+  <strong>> gitwire_</strong>
+</p>
 
-A command-line interface for accessing GitWire trend data. Built for both developers and AI agents, with first-class `--json` support for machine-readable output.
+<p align="center">
+  <a href="https://www.npmjs.com/package/gitwire-cli"><img src="https://img.shields.io/badge/npm-gitwire--cli-CB3837?style=flat-square&logo=npm" alt="npm" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Node.js-%3E%3D18-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/--json-Agent%20Ready-00ff88?style=flat-square" alt="Agent Ready" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" /></a>
+</p>
 
-## Installation
+<p align="center">
+  CLI for accessing GitWire trend data.<br/>
+  Built for both developers and AI agents, with first-class <code>--json</code> support.
+</p>
+
+---
+
+## Install
 
 ```bash
 npm install -g gitwire-cli
 ```
 
-## Usage
-
-### Trends
-
-View trending GitHub repositories by star growth.
+## Quick Start
 
 ```bash
-# Default: 24-hour trends
+# Trending repos (24h)
 gitwire trends
 
-# Weekly trends
-gitwire trends --window 1w
+# Weekly trends, JSON output for pipelines
+gitwire trends -w 1w --json
 
-# Monthly trends in JSON format (for AI agents / pipelines)
-gitwire trends --window 1m --json
+# Latest investment insights
+gitwire insights --latest 5
 ```
 
-**Options:**
+## Commands
+
+### `gitwire trends`
+
+View trending GitHub repositories by star growth.
 
 | Flag | Description | Default |
 |------|-------------|---------|
 | `-w, --window <window>` | Time window: `24h`, `1w`, `1m` | `24h` |
-| `--json` | Output raw JSON to stdout | `false` |
+| `--json` | Output raw JSON to stdout | off |
 
-### Insights
+### `gitwire insights`
 
 View investment insights and editorial content.
-
-```bash
-# Latest 10 insights
-gitwire insights
-
-# Latest 5 insights
-gitwire insights --latest 5
-
-# JSON output for pipeline consumption
-gitwire insights --latest 20 --json
-```
-
-**Options:**
 
 | Flag | Description | Default |
 |------|-------------|---------|
 | `-l, --latest <number>` | Number of insights to fetch | `10` |
-| `--json` | Output raw JSON to stdout | `false` |
+| `--json` | Output raw JSON to stdout | off |
 
 ## Output Modes
 
-### Human Mode (Default)
+### Human Mode (default)
 
-Colorized terminal output with tables and formatting:
+Colorized terminal output with tables:
 
 ```
-#    Repository                                Language           Stars +    Total Stars
----------------------------------------------------------------------------------------------
-1    some-cool-repo                            TypeScript              +150      12000
-2    another-repo                              Python                   +98       8500
+#    Repository                               Language        Stars +   Total Stars
+----------------------------------------------------------------------------------
+1    some-cool-repo                           TypeScript          +150       12000
+2    another-repo                             Python               +98        8500
 ```
 
 ### Agent Mode (`--json`)
 
-Pure JSON to stdout. No colors, no decorations. Designed for piping and parsing:
+Pure JSON to stdout. No colors. Designed for piping:
 
 ```bash
 gitwire trends --json | jq '.data[0].repository.name'
+gitwire insights --json | jq '.data[].investments'
 ```
 
-Errors are written to stderr, ensuring clean stdout for parsers.
+> Errors go to stderr, keeping stdout clean for parsers.
 
 ## Configuration
 
-| Environment Variable | Description | Default |
-|---------------------|-------------|---------|
-| `GITWIRE_API_URL` | GitWire Core API base URL | `https://gitwire-core.vercel.app` |
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `GITWIRE_API_URL` | GitWire Core API URL | `https://gitwire-core.vercel.app` |
 
 ## Architecture
 
@@ -92,29 +95,24 @@ Errors are written to stderr, ensuring clean stdout for parsers.
 |              |  /api/v1/insights    |               |       +----------+
 +--------------+                      +---------------+
       |
-      +-- Human mode: Chalk-colored tables
-      +-- Agent mode: Raw JSON to stdout
+      +-- Human mode ..... Chalk-colored tables
+      +-- Agent mode ..... Raw JSON to stdout
 ```
 
 ## Development
 
 ```bash
-# Install dependencies
-npm install
+npm install          # install dependencies
+npm run build        # compile TypeScript
+npm run dev          # watch mode
 
-# Build
-npm run build
-
-# Run locally
-node dist/index.js trends --window 24h
-
-# Watch mode
-npm run dev
+node dist/index.js trends --window 24h   # run locally
 ```
 
-## Requirements
+## Related
 
-- Node.js >= 18
+- [`gitwire-core`](https://github.com/ingeun92/gitwire-core) - Backend API & data pipeline
+- [`gitwire-web`](https://github.com/ingeun92/gitwire-web) - Cyberpunk media dashboard
 
 ## License
 
