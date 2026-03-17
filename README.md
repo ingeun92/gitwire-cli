@@ -1,6 +1,4 @@
-<p align="center">
-  <strong>> gitwire_</strong>
-</p>
+<h1 align="center">GitWire CLI</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/gitwire-cli"><img src="https://img.shields.io/badge/npm-gitwire--cli-CB3837?style=flat-square&logo=npm" alt="npm" /></a>
