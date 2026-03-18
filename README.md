@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/gitwire-cli"><img src="https://img.shields.io/badge/npm-gitwire--cli-CB3837?style=flat-square&logo=npm" alt="npm" /></a>
   <a href="#"><img src="https://img.shields.io/badge/Node.js-%3E%3D18-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <a href="#"><img src="https://img.shields.io/badge/--json-Agent%20Ready-00ff88?style=flat-square" alt="Agent Ready" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" /></a>
 </p>
@@ -110,7 +110,7 @@ node dist/index.js trends --window 24h   # run locally
 ## Related
 
 - [`gitwire-core`](https://github.com/ingeun92/gitwire-core) - Backend API & data pipeline
-- [`gitwire-web`](https://github.com/ingeun92/gitwire-web) - Cyberpunk media dashboard
+- [`gitwire-web`](https://github.com/ingeun92/gitwire-web) - Professional data dashboard
 
 ## License
 
