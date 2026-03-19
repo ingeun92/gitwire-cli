@@ -18,7 +18,11 @@
 ## Install
 
 ```bash
+# npm
 npm install -g gitwire-cli
+
+# pnpm
+pnpm add -g gitwire-cli
 ```
 
 ## Quick Start
@@ -100,9 +104,15 @@ gitwire insights --json | jq '.data[].investments'
 ## Development
 
 ```bash
+# npm
 npm install          # install dependencies
 npm run build        # compile TypeScript
 npm run dev          # watch mode
+
+# pnpm
+pnpm install         # install dependencies
+pnpm build           # compile TypeScript
+pnpm dev             # watch mode
 
 node dist/index.js trends --window 24h   # run locally
 ```
